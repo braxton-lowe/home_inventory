@@ -1,0 +1,31 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "\n            INSERT INTO grocery_trips (trip_date, store_name, total_spent, notes)\n            VALUES ($1, $2, $3, $4)\n            ON CONFLICT (trip_date, store_name)\n            DO UPDATE SET\n                total_spent = EXCLUDED.total_spent,\n                notes = EXCLUDED.notes,\n                updated_at = NOW()\n            RETURNING id, (xmax = 0) as \"was_created!\"\n            ",
+  "describe": {
+    "columns": [
+      {
+        "ordinal": 0,
+        "name": "id",
+        "type_info": "Uuid"
+      },
+      {
+        "ordinal": 1,
+        "name": "was_created!",
+        "type_info": "Bool"
+      }
+    ],
+    "parameters": {
+      "Left": [
+        "Date",
+        "Text",
+        "Numeric",
+        "Text"
+      ]
+    },
+    "nullable": [
+      false,
+      null
+    ]
+  },
+  "hash": "80a0b1038a5c58dc93fea7b0ab15f5b498e613f0ce83673bb72fc9960f7f9f61"
+}

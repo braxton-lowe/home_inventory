@@ -1,0 +1,61 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "\n        INSERT INTO grocery_trips (trip_date, store_name, total_spent, notes)\n        VALUES ($1, $2, $3, $4)\n        RETURNING id, trip_date, store_name, total_spent, notes, created_at, updated_at\n        ",
+  "describe": {
+    "columns": [
+      {
+        "ordinal": 0,
+        "name": "id",
+        "type_info": "Uuid"
+      },
+      {
+        "ordinal": 1,
+        "name": "trip_date",
+        "type_info": "Date"
+      },
+      {
+        "ordinal": 2,
+        "name": "store_name",
+        "type_info": "Text"
+      },
+      {
+        "ordinal": 3,
+        "name": "total_spent",
+        "type_info": "Numeric"
+      },
+      {
+        "ordinal": 4,
+        "name": "notes",
+        "type_info": "Text"
+      },
+      {
+        "ordinal": 5,
+        "name": "created_at",
+        "type_info": "Timestamptz"
+      },
+      {
+        "ordinal": 6,
+        "name": "updated_at",
+        "type_info": "Timestamptz"
+      }
+    ],
+    "parameters": {
+      "Left": [
+        "Date",
+        "Text",
+        "Numeric",
+        "Text"
+      ]
+    },
+    "nullable": [
+      false,
+      false,
+      false,
+      true,
+      true,
+      false,
+      false
+    ]
+  },
+  "hash": "4925bc7d8f023f65b97bd5dbff3ebd57bd1fa354f3b925d60c78fcd3870808af"
+}
