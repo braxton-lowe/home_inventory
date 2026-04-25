@@ -1,6 +1,7 @@
 # --- Build stage ---
 FROM rust:latest AS builder
 WORKDIR /app
+ENV SQLX_OFFLINE=true
 COPY . .
 RUN cargo build --release
 

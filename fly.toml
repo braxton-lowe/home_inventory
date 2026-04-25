@@ -1,4 +1,4 @@
-# fly.toml app configuration file generated for app-floral-violet-165 on 2026-04-25T12:56:49Z
+# fly.toml app configuration file generated for app-floral-violet-165 on 2026-04-25T10:09:38-05:00
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
@@ -9,10 +9,10 @@ primary_region = 'iad'
 [build]
 
 [env]
-  PORT = '8080'
+  PORT = '3000'
 
 [http_service]
-  internal_port = 8080
+  internal_port = 3000
   force_https = true
   auto_stop_machines = 'stop'
   auto_start_machines = true
@@ -20,7 +20,6 @@ primary_region = 'iad'
   processes = ['app']
 
 [[vm]]
-  memory = '1gb'
-  cpu_kind = 'shared'
+  memory = '256mb'
   cpus = 1
   memory_mb = 256
