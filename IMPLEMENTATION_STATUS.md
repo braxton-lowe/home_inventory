@@ -6,7 +6,7 @@
 All directories and files have been created according to the plan:
 
 ```
-home_food_inventory/
+home_inventory/
 ├── Cargo.toml (updated with all dependencies)
 ├── .env (database configuration)
 ├── .env.example (template for environment variables)
@@ -95,7 +95,7 @@ Complete API routing configured in `src/routes.rs`:
 ### 8. Docker Configuration ✅
 `docker-compose.yml` configured with:
 - PostgreSQL 16 Alpine image
-- Database: `home_food_inventory`
+- Database: `home_inventory`
 - User: `grocery_user`
 - Password: `dev_password`
 - Port: 5432
@@ -123,8 +123,8 @@ docker-compose up -d
 **Expected output:**
 ```
 [+] Running 2/2
- ✔ Network home_food_inventory_default     Created
- ✔ Container home_food_inventory-postgres-1  Started
+ ✔ Network home_inventory_default     Created
+ ✔ Container home_inventory-postgres-1  Started
 ```
 
 **Verify it's running:**
@@ -173,9 +173,9 @@ cargo run
 
 **Expected output:**
 ```
-2024-02-07T... INFO home_food_inventory: Connecting to database...
-2024-02-07T... INFO home_food_inventory: Running database migrations...
-2024-02-07T... INFO home_food_inventory: Starting server on 0.0.0.0:3000
+2024-02-07T... INFO home_inventory: Connecting to database...
+2024-02-07T... INFO home_inventory: Running database migrations...
+2024-02-07T... INFO home_inventory: Starting server on 0.0.0.0:3000
 ```
 
 **If the server starts successfully**, proceed to testing!
@@ -398,7 +398,7 @@ cargo run
 RUST_LOG=debug cargo run
 
 # Connect to database directly
-docker-compose exec postgres psql -U grocery_user -d home_food_inventory
+docker-compose exec postgres psql -U grocery_user -d home_inventory
 
 # Stop the server
 Ctrl+C

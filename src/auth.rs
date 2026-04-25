@@ -89,7 +89,7 @@ fn subtle_comparison(a: &str, b: &str) -> bool {
 fn unauthorized_response() -> Response {
     let headers = [(
         "WWW-Authenticate",
-        "Basic realm=\"Home Food Inventory\"",
+        "Basic realm=\"Home Inventory\"",
     )];
     (
         StatusCode::UNAUTHORIZED,
