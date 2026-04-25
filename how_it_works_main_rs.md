@@ -12,7 +12,7 @@ This document provides detailed explanations of specific code patterns and lines
 tracing_subscriber::registry()
     .with(
         tracing_subscriber::EnvFilter::try_from_default_env()
-            .unwrap_or_else(|_| "info,home_food_inventory=debug".into()),
+            .unwrap_or_else(|_| "info,home_inventory=debug".into()),
     )
     .with(tracing_subscriber::fmt::layer())
     .init();
@@ -28,7 +28,7 @@ This sets up **logging/tracing** for your Rust application. Let me break it down
 tracing_subscriber::registry()          // 1. Create a logging registry
     .with(                              // 2. Add a filter layer
         tracing_subscriber::EnvFilter::try_from_default_env()
-            .unwrap_or_else(|_| "info,home_food_inventory=debug".into()),
+            .unwrap_or_else(|_| "info,home_inventory=debug".into()),
     )
     .with(tracing_subscriber::fmt::layer())  // 3. Add formatting layer
     .init();                            // 4. Activate it globally
@@ -54,11 +54,11 @@ This is the **log level filter** - it controls what gets logged.
 
 **What it does:**
 - `try_from_default_env()` - Reads the `RUST_LOG` environment variable
-- `unwrap_or_else(|_| "info,home_food_inventory=debug".into())` - If `RUST_LOG` isn't set, use the default: `"info,home_food_inventory=debug"`
+- `unwrap_or_else(|_| "info,home_inventory=debug".into())` - If `RUST_LOG` isn't set, use the default: `"info,home_inventory=debug"`
 
 **Log level string explained:**
 ```
-"info,home_food_inventory=debug"
+"info,home_inventory=debug"
   │                         │
   │                         └─ Your app logs at DEBUG level
   └─ Everything else logs at INFO level
@@ -73,7 +73,7 @@ log_level = os.getenv('LOG_LEVEL', 'INFO')
 logging.basicConfig(level=log_level)
 
 # For module-specific levels:
-logging.getLogger('home_food_inventory').setLevel(logging.DEBUG)
+logging.getLogger('home_inventory').setLevel(logging.DEBUG)
 logging.getLogger().setLevel(logging.INFO)
 ```
 
@@ -95,8 +95,8 @@ Adds a **formatting layer** that controls how logs are displayed.
 
 **Example output:**
 ```
-2024-02-07T10:30:00.123Z  INFO home_food_inventory: Server starting on 0.0.0.0:3000
-2024-02-07T10:30:01.456Z DEBUG home_food_inventory::db::food_items: Fetching all items from database
+2024-02-07T10:30:00.123Z  INFO home_inventory: Server starting on 0.0.0.0:3000
+2024-02-07T10:30:01.456Z DEBUG home_inventory::db::food_items: Fetching all items from database
 ```
 
 **Python equivalent:**
@@ -123,13 +123,13 @@ logging.basicConfig(...)  # This also "activates" logging
 
 Your `.env` has:
 ```env
-RUST_LOG=info,home_food_inventory=debug
+RUST_LOG=info,home_inventory=debug
 ```
 
 So when you run `cargo run`, it:
 1. Reads `RUST_LOG` from `.env`
 2. Sets third-party libraries to `info` level (less verbose)
-3. Sets your app (`home_food_inventory`) to `debug` level (more verbose)
+3. Sets your app (`home_inventory`) to `debug` level (more verbose)
 
 **To change verbosity:**
 ```env
@@ -137,13 +137,13 @@ So when you run `cargo run`, it:
 RUST_LOG=debug
 
 # Only your app's debug logs
-RUST_LOG=info,home_food_inventory=debug
+RUST_LOG=info,home_inventory=debug
 
 # Only errors everywhere
 RUST_LOG=error
 
 # Trace-level logs for database queries
-RUST_LOG=info,sqlx=trace,home_food_inventory=debug
+RUST_LOG=info,sqlx=trace,home_inventory=debug
 ```
 
 ---
@@ -212,7 +212,7 @@ logger.addHandler(json_handler)
 |------|--------|---------|
 | `tracing_subscriber::registry()` | `logging.getLogger()` | Create logger |
 | `EnvFilter::try_from_default_env()` | `os.getenv('LOG_LEVEL')` | Read log level from env |
-| `"info,home_food_inventory=debug"` | `logging.basicConfig(level=...)` | Set log levels |
+| `"info,home_inventory=debug"` | `logging.basicConfig(level=...)` | Set log levels |
 | `.with(fmt::layer())` | `format='...'` | Format output |
 | `.init()` | `basicConfig(...)` | Activate logging |
 | `info!("message")` | `logger.info("message")` | Log a message |

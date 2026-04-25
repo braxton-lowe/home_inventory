@@ -9,7 +9,7 @@ const DASHBOARD_HTML: &str = r##"<!DOCTYPE html>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Home Food Inventory</title>
+<title>Home Inventory</title>
 <style>
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: #f5f5f5; color: #333; padding: 20px; max-width: 1200px; margin: 0 auto; }
@@ -100,7 +100,7 @@ td .row-checkbox, th .select-all { cursor: pointer; width: 16px; height: 16px; }
 </style>
 </head>
 <body>
-<h1>Home Food Inventory</h1>
+<h1>Home Inventory</h1>
 
 <div class="tabs">
   <div class="tab active" data-tab="items">Items</div>

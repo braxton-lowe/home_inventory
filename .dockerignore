@@ -5,3 +5,5 @@ target
 **/*.db-journal
 **/.DS_Store
 fly.toml
+fly.toml
+.git/

@@ -14,7 +14,7 @@ impl Config {
         dotenvy::dotenv().ok();
 
         let database_url = env::var("DATABASE_URL")
-            .unwrap_or_else(|_| "postgresql://grocery_user:dev_password@localhost:5432/home_food_inventory".to_string());
+            .unwrap_or_else(|_| "postgresql://grocery_user:dev_password@localhost:5432/home_inventory".to_string());
 
         let host = env::var("HOST")
             .unwrap_or_else(|_| "0.0.0.0".to_string());

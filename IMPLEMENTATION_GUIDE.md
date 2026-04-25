@@ -1,4 +1,4 @@
-# Home Food Inventory - Implementation Guide
+# Home Inventory - Implementation Guide
 
 ## Overview
 
@@ -390,7 +390,7 @@ http POST localhost:3000/api/v1/locations name=pantry description="Main pantry"
 ### Database Access
 Connect directly to PostgreSQL:
 ```bash
-docker-compose exec postgres psql -U grocery_user -d home_food_inventory
+docker-compose exec postgres psql -U grocery_user -d home_inventory
 ```
 
 ### Reset Database
@@ -403,7 +403,7 @@ sqlx migrate run
 ## Project Structure
 
 ```
-home_food_inventory/
+home_inventory/
 ├── Cargo.toml
 ├── .env
 ├── .env.example

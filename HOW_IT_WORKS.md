@@ -37,7 +37,7 @@ async fn main() -> anyhow::Result<()> {
     tracing_subscriber::registry()
         .with(
             tracing_subscriber::EnvFilter::try_from_default_env()
-                .unwrap_or_else(|_| "info,home_food_inventory=debug".into()),
+                .unwrap_or_else(|_| "info,home_inventory=debug".into()),
         )
         .with(tracing_subscriber::fmt::layer())
         .init();
@@ -92,7 +92,7 @@ impl Config {
         dotenvy::dotenv().ok();  // ← Load .env file here
 
         let database_url = env::var("DATABASE_URL")
-            .unwrap_or_else(|_| "postgresql://grocery_user:dev_password@localhost:5432/home_food_inventory".to_string());
+            .unwrap_or_else(|_| "postgresql://grocery_user:dev_password@localhost:5432/home_inventory".to_string());
 
         let host = env::var("HOST")
             .unwrap_or_else(|_| "0.0.0.0".to_string());
@@ -139,10 +139,10 @@ sqlx migrate run
 
 **Your `.env` file:**
 ```env
-DATABASE_URL=postgresql://grocery_user:dev_password@localhost:5432/home_food_inventory
+DATABASE_URL=postgresql://grocery_user:dev_password@localhost:5432/home_inventory
 HOST=0.0.0.0
 PORT=3000
-RUST_LOG=info,home_food_inventory=debug
+RUST_LOG=info,home_inventory=debug
 ```
 
 **Python equivalent:**
