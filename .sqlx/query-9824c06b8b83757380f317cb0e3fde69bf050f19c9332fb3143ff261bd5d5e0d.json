@@ -1,0 +1,106 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "\n        SELECT\n            fi.id,\n            fi.type as \"item_type!\",\n            fi.brand,\n            fi.name,\n            fi.quantity,\n            fi.unit,\n            fi.price,\n            fi.expiration_date,\n            fi.purchase_date,\n            fi.notes,\n            fi.location_id,\n            fi.active,\n            fi.consumed_at,\n            fi.created_at,\n            fi.updated_at\n        FROM food_items fi\n        INNER JOIN trip_items ti ON fi.id = ti.food_item_id\n        WHERE ti.trip_id = $1\n        ORDER BY fi.name\n        ",
+  "describe": {
+    "columns": [
+      {
+        "ordinal": 0,
+        "name": "id",
+        "type_info": "Uuid"
+      },
+      {
+        "ordinal": 1,
+        "name": "item_type!",
+        "type_info": "Text"
+      },
+      {
+        "ordinal": 2,
+        "name": "brand",
+        "type_info": "Text"
+      },
+      {
+        "ordinal": 3,
+        "name": "name",
+        "type_info": "Text"
+      },
+      {
+        "ordinal": 4,
+        "name": "quantity",
+        "type_info": "Numeric"
+      },
+      {
+        "ordinal": 5,
+        "name": "unit",
+        "type_info": "Text"
+      },
+      {
+        "ordinal": 6,
+        "name": "price",
+        "type_info": "Numeric"
+      },
+      {
+        "ordinal": 7,
+        "name": "expiration_date",
+        "type_info": "Date"
+      },
+      {
+        "ordinal": 8,
+        "name": "purchase_date",
+        "type_info": "Date"
+      },
+      {
+        "ordinal": 9,
+        "name": "notes",
+        "type_info": "Text"
+      },
+      {
+        "ordinal": 10,
+        "name": "location_id",
+        "type_info": "Uuid"
+      },
+      {
+        "ordinal": 11,
+        "name": "active",
+        "type_info": "Bool"
+      },
+      {
+        "ordinal": 12,
+        "name": "consumed_at",
+        "type_info": "Timestamptz"
+      },
+      {
+        "ordinal": 13,
+        "name": "created_at",
+        "type_info": "Timestamptz"
+      },
+      {
+        "ordinal": 14,
+        "name": "updated_at",
+        "type_info": "Timestamptz"
+      }
+    ],
+    "parameters": {
+      "Left": [
+        "Uuid"
+      ]
+    },
+    "nullable": [
+      false,
+      false,
+      true,
+      false,
+      false,
+      false,
+      true,
+      true,
+      false,
+      true,
+      false,
+      false,
+      true,
+      false,
+      false
+    ]
+  },
+  "hash": "9824c06b8b83757380f317cb0e3fde69bf050f19c9332fb3143ff261bd5d5e0d"
+}

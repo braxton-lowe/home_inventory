@@ -1,0 +1,82 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "\n        INSERT INTO meals (name, made_on, servings, last_eaten, rating, ingredients, recipe_link)\n        VALUES ($1, $2, $3, $4, $5, $6, $7)\n        RETURNING id, name, made_on, servings, last_eaten, rating, ingredients, recipe_link, created_at, updated_at\n        ",
+  "describe": {
+    "columns": [
+      {
+        "ordinal": 0,
+        "name": "id",
+        "type_info": "Uuid"
+      },
+      {
+        "ordinal": 1,
+        "name": "name",
+        "type_info": "Text"
+      },
+      {
+        "ordinal": 2,
+        "name": "made_on",
+        "type_info": "Date"
+      },
+      {
+        "ordinal": 3,
+        "name": "servings",
+        "type_info": "Int4"
+      },
+      {
+        "ordinal": 4,
+        "name": "last_eaten",
+        "type_info": "Date"
+      },
+      {
+        "ordinal": 5,
+        "name": "rating",
+        "type_info": "Text"
+      },
+      {
+        "ordinal": 6,
+        "name": "ingredients",
+        "type_info": "Text"
+      },
+      {
+        "ordinal": 7,
+        "name": "recipe_link",
+        "type_info": "Text"
+      },
+      {
+        "ordinal": 8,
+        "name": "created_at",
+        "type_info": "Timestamptz"
+      },
+      {
+        "ordinal": 9,
+        "name": "updated_at",
+        "type_info": "Timestamptz"
+      }
+    ],
+    "parameters": {
+      "Left": [
+        "Text",
+        "Date",
+        "Int4",
+        "Date",
+        "Text",
+        "Text",
+        "Text"
+      ]
+    },
+    "nullable": [
+      false,
+      false,
+      false,
+      false,
+      true,
+      false,
+      true,
+      true,
+      false,
+      false
+    ]
+  },
+  "hash": "6ad25cec824c392f481447674d9f34eeec8ad6313d05fdc76fea217ed0f8bbd6"
+}

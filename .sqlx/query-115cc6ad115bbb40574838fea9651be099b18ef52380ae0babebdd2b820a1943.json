@@ -1,0 +1,37 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "\n        INSERT INTO food_items (\n            type, brand, name, quantity, unit, price,\n            expiration_date, purchase_date, notes, location_id\n        )\n        VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)\n        ON CONFLICT (name, COALESCE(brand, ''), type, location_id, purchase_date)\n        DO UPDATE SET\n            quantity = EXCLUDED.quantity,\n            unit = EXCLUDED.unit,\n            price = EXCLUDED.price,\n            expiration_date = EXCLUDED.expiration_date,\n            notes = EXCLUDED.notes,\n            active = true,\n            consumed_at = NULL,\n            updated_at = NOW()\n        RETURNING id, (xmax = 0) as \"was_created!\"\n        ",
+  "describe": {
+    "columns": [
+      {
+        "ordinal": 0,
+        "name": "id",
+        "type_info": "Uuid"
+      },
+      {
+        "ordinal": 1,
+        "name": "was_created!",
+        "type_info": "Bool"
+      }
+    ],
+    "parameters": {
+      "Left": [
+        "Text",
+        "Text",
+        "Text",
+        "Numeric",
+        "Text",
+        "Numeric",
+        "Date",
+        "Date",
+        "Text",
+        "Uuid"
+      ]
+    },
+    "nullable": [
+      false,
+      null
+    ]
+  },
+  "hash": "115cc6ad115bbb40574838fea9651be099b18ef52380ae0babebdd2b820a1943"
+}

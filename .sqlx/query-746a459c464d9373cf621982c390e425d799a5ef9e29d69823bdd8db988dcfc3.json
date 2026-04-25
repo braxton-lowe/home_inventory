@@ -1,0 +1,14 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "UPDATE food_items SET active = false, consumed_at = NOW() WHERE id = $1 AND active = true",
+  "describe": {
+    "columns": [],
+    "parameters": {
+      "Left": [
+        "Uuid"
+      ]
+    },
+    "nullable": []
+  },
+  "hash": "746a459c464d9373cf621982c390e425d799a5ef9e29d69823bdd8db988dcfc3"
+}

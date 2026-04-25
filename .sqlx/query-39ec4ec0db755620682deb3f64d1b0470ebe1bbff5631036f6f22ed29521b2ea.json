@@ -1,0 +1,106 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "\n        SELECT\n            id,\n            type as \"item_type!\",\n            brand,\n            name,\n            quantity,\n            unit,\n            price,\n            expiration_date,\n            purchase_date,\n            notes,\n            location_id,\n            active,\n            consumed_at,\n            created_at,\n            updated_at\n        FROM food_items\n        WHERE id = $1\n        ",
+  "describe": {
+    "columns": [
+      {
+        "ordinal": 0,
+        "name": "id",
+        "type_info": "Uuid"
+      },
+      {
+        "ordinal": 1,
+        "name": "item_type!",
+        "type_info": "Text"
+      },
+      {
+        "ordinal": 2,
+        "name": "brand",
+        "type_info": "Text"
+      },
+      {
+        "ordinal": 3,
+        "name": "name",
+        "type_info": "Text"
+      },
+      {
+        "ordinal": 4,
+        "name": "quantity",
+        "type_info": "Numeric"
+      },
+      {
+        "ordinal": 5,
+        "name": "unit",
+        "type_info": "Text"
+      },
+      {
+        "ordinal": 6,
+        "name": "price",
+        "type_info": "Numeric"
+      },
+      {
+        "ordinal": 7,
+        "name": "expiration_date",
+        "type_info": "Date"
+      },
+      {
+        "ordinal": 8,
+        "name": "purchase_date",
+        "type_info": "Date"
+      },
+      {
+        "ordinal": 9,
+        "name": "notes",
+        "type_info": "Text"
+      },
+      {
+        "ordinal": 10,
+        "name": "location_id",
+        "type_info": "Uuid"
+      },
+      {
+        "ordinal": 11,
+        "name": "active",
+        "type_info": "Bool"
+      },
+      {
+        "ordinal": 12,
+        "name": "consumed_at",
+        "type_info": "Timestamptz"
+      },
+      {
+        "ordinal": 13,
+        "name": "created_at",
+        "type_info": "Timestamptz"
+      },
+      {
+        "ordinal": 14,
+        "name": "updated_at",
+        "type_info": "Timestamptz"
+      }
+    ],
+    "parameters": {
+      "Left": [
+        "Uuid"
+      ]
+    },
+    "nullable": [
+      false,
+      false,
+      true,
+      false,
+      false,
+      false,
+      true,
+      true,
+      false,
+      true,
+      false,
+      false,
+      true,
+      false,
+      false
+    ]
+  },
+  "hash": "39ec4ec0db755620682deb3f64d1b0470ebe1bbff5631036f6f22ed29521b2ea"
+}
