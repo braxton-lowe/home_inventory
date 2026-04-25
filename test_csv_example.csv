@@ -1,0 +1,4 @@
+location,type,brand,name,quantity,unit,price,expiration_date,purchase_date,notes
+pantry,produce,,Bananas,3,count,3.99,,2024-02-07,
+fridge,dairy,Costco,Whole Milk,1,gallon,5.99,2024-02-20,2024-02-07,
+pantry,produce,,Cara Cara Oranges,3,,,,,
