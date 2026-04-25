@@ -1,5 +1,5 @@
 =======
-# Home Food Inventory
+# Home Inventory
 
 A REST API for tracking grocery purchases and food inventory, built with Rust, Axum, SQLx, and PostgreSQL.
 
@@ -45,15 +45,15 @@ The API will be available at `http://localhost:3000`.
 **From inside the Docker container:**
 ```bash
 # First, exec into the container
-docker exec -it home_food_inventory-postgres-1 bash
+docker exec -it home_inventory-postgres-1 bash
 
 # Then connect to the database
-psql -U grocery_user -d home_food_inventory
+psql -U grocery_user -d home_inventory
 ```
 
 **From your host machine:**
 ```bash
-psql -h localhost -p 5432 -U grocery_user -d home_food_inventory
+psql -h localhost -p 5432 -U grocery_user -d home_inventory
 ```
 
 **Password:** `dev_password` (from docker-compose.yml)
