@@ -1,2 +1,9 @@
+# flyctl launch added from .gitignore
+target
+**/.env
+**/*.db
+**/*.db-journal
+**/.DS_Store
+fly.toml
 fly.toml
 .git/
